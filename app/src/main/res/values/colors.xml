@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue">#1976D2</color>
+    <color name="orange">#F57C00</color>
+    <color name="green">#388E3C</color>
+    <color name="red">#D32F2F</color>
+    <color name="yellow">#FBC02D</color>
+
+    <color name="white">#FFF</color>
+    <color name="black">#FF000000</color>
+    <color name="soft_white">#F5F5F5</color>
+    <color name="light_gray_background">#E0E0E0</color>
+    <color name="my_app_primary">#009688</color>
+    <color name="my_app_primary_dark">#00796B</color>
+    <color name="my_app_secondary">#FFC107</color>
+</resources>

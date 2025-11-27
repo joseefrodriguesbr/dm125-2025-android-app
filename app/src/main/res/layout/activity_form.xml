@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- Selo para "Concluída" (verde) -->
+    <TextView
+        android:id="@+id/tvStatusCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/status_background_completed"
+        android:gravity="center"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="6dp"
+        android:text="@string/completed"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <!-- Selo para "Não Concluída" (vermelho) -->
+    <TextView
+        android:id="@+id/tvStatusNotCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/status_background_not_completed"
+        android:gravity="center"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="6dp"
+        android:text="@string/not_completed"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/tvStatusCompleted"
+        app:layout_constraintTop_toTopOf="@id/tvStatusCompleted"
+        tools:visibility="gone" />
+
+    <!--
+        - 'barrierDirection="bottom"' significa que a barreira ficará abaixo dos elementos.
+        - 'constraint_referenced_ids' aponta para os dois selos.
+    -->
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="tvStatusCompleted,tvStatusNotCompleted" />
+
+    <!--
+        - Isso garante que o formulário sempre começará abaixo de QUALQUER selo que estiver visível.
+    -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:boxBackgroundColor="?android:colorBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier_status">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:boxBackgroundColor="?android:colorBackground"
+        app:layout_constraintEnd_toEndOf="@id/layoutTitle"
+        app:layout_constraintStart_toStartOf="@id/layoutTitle"
+        app:layout_constraintTop_toBottomOf="@id/layoutTitle">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/description" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="5dp"
+        app:boxBackgroundColor="?android:colorBackground"
+        app:layout_constraintEnd_toStartOf="@id/layoutTime"
+        app:layout_constraintStart_toStartOf="@id/layoutTitle"
+        app:layout_constraintTop_toBottomOf="@id/layoutDescription">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/date" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="12dp"
+        app:boxBackgroundColor="?android:colorBackground"
+        app:layout_constraintEnd_toEndOf="@id/layoutTitle"
+        app:layout_constraintStart_toEndOf="@id/layoutDate"
+        app:layout_constraintTop_toBottomOf="@id/layoutDescription">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/time" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/btSave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/save"
+        app:layout_constraintEnd_toEndOf="@id/layoutTitle"
+        app:layout_constraintStart_toStartOf="@id/layoutTitle"
+        app:layout_constraintTop_toBottomOf="@id/layoutDate" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

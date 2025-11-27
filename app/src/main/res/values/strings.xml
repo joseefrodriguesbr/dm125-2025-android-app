@@ -1,0 +1,59 @@
+<resources><string name="app_name">Minhas Tarefas</string>
+
+    <string name="title">Título</string>
+    <string name="description">Description</string>
+    <string name="date">Data</string>
+    <string name="time">Hora</string>
+    <string name="save">Salvar</string>
+
+    <string name="title_required">Título é obrigatório</string>
+
+    <string name="server_error">Não foi possível conectar ao servidor</string>
+    <string name="empty_list">Não existem tarefas cadastradas.\nClique no botão abaixo para cadastrar uma nova tarefa.</string>
+
+    <string name="permission">Permissões</string>
+    <string name="notification_permission_rationale">O aplicativo irá enviar notificações para você quando houver tarefas pendentes.</string>
+
+    <string name="preferences">Configurações</string>
+    <string name="daily_notification">Notificações diárias</string>
+    <string name="daily_notification_on">Você receberá uma notificação diária.</string>
+    <string name="daily_notification_off">Você não receberá a notificação diária.</string>
+
+    <string name="mark_completed">Marcar como concluída</string>
+
+    <string name="completed">Concluída</string>
+    <string name="not_completed">Não Concluída</string>
+
+    <string name="about">Sobre</string>
+    <string name="add_task">Adicionar nova tarefa</string>
+
+    <string name="create_error">Não foi possível criar a tarefa.</string>
+    <string name="update_error">Não foi possível atualizar a tarefa</string>
+
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="create_account">Criar conta</string>
+    <string name="empty_email">Preencha o e-mail</string>
+    <string name="empty_password">Preencha a senha</string>
+    <string name="account_created_fail">Não foi possível criar a conta</string>
+    <string name="login_fail">Não foi possível fazer o login</string>
+    <string name="invalid_date_format">Data em formato inválido</string>
+    <string name="invalid_time_format">Hora em formato inválido</string>
+
+    <string name="date_format">Formato da data</string>
+    <string name="date_format_summary">Escolha o formato da data</string>
+    <string-array name="date_format_entries">
+        <item>Números</item>
+        <item>Extenso</item>
+    </string-array>
+    <string-array name="date_format_values">
+        <item>numbers</item>
+        <item>extended</item>
+    </string-array>
+
+    <string name="delete_confirmation_title">Confirmar exclusão</string>
+    <string name="delete_confirmation_message">Deseja realmente excluir esta tarefa?</string>
+
+</resources>

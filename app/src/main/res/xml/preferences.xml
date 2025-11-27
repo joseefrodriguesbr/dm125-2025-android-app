@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/permission">
+
+        <SwitchPreferenceCompat
+            android:key="daily_notification"
+            android:summaryOff="@string/daily_notification_off"
+            android:summaryOn="@string/daily_notification_on"
+            android:title="@string/daily_notification" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/date_format">
+
+        <ListPreference
+            app:key="date_format"
+            app:title="@string/date_format"
+            app:summary="@string/date_format_summary"
+            app:entries="@array/date_format_entries"
+            app:entryValues="@array/date_format_values"
+            app:defaultValue="numbers" />
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>
