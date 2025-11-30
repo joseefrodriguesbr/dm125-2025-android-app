@@ -14,6 +14,9 @@
         android:theme="@style/Theme.MyTasks"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.PhoneAuthActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.LoginActivity"
             android:exported="true"
             android:noHistory="true">
@@ -29,7 +32,9 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>

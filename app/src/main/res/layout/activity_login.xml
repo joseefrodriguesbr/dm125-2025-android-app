@@ -65,4 +65,16 @@
         app:layout_constraintStart_toStartOf="@id/layoutEmail"
         app:layout_constraintTop_toBottomOf="@id/btLogin" />
 
+    <Button
+        android:id="@+id/btLoginWithPhone"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/login_with_phone"
+        app:layout_constraintEnd_toEndOf="@id/layoutEmail"
+        app:layout_constraintStart_toStartOf="@id/layoutEmail"
+        app:layout_constraintTop_toBottomOf="@id/btCreateAccount" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

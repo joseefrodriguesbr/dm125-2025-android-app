@@ -22,18 +22,27 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
 
+        // Inicializa o Firebase Auth primeiro.
+        auth = Firebase.auth
+
+        // Se o usuário já estiver logado, não carrega a UI de login.
+        if (auth.currentUser != null) {
+            goToMainActivity() // Navega para a tela principal e finaliza esta.
+            return // Para a execução do onCreate aqui.
+        }
+
+        // Se o usuário não estiver logado, continua para configurar a tela de login.
+        enableEdgeToEdge()
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        auth = Firebase.auth
-
-        if (auth.currentUser != null) {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-
         initComponents()
+
+        // Adiciona o listener para o novo botão de login com telefone.
+        binding.btLoginWithPhone.setOnClickListener {
+            startActivity(Intent(this, PhoneAuthActivity::class.java))
+        }
     }
 
     private fun initComponents() {
@@ -70,37 +79,50 @@ class LoginActivity : AppCompatActivity() {
 
     private fun createAccount() {
         auth.createUserWithEmailAndPassword(binding.etEmail.value(), binding.etPassword.value())
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        login()
-                    } else {
-                        val message =
-                            task.exception?.message ?: ContextCompat.getString(this, R.string.account_created_fail)
-                        Log.e("auth", "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            baseContext,
-                            message,
-                            Toast.LENGTH_SHORT,
-                        ).show()
-                    }
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Após criar a conta, tenta fazer o login automaticamente.
+                    login()
+                } else {
+                    val message =
+                        task.exception?.message ?: ContextCompat.getString(this, R.string.account_created_fail)
+                    // Agora a referência 'Log' é reconhecida
+                    Log.e("auth", "createUserWithEmail:failure", task.exception)
+                    Toast.makeText(
+                        baseContext,
+                        message,
+                        Toast.LENGTH_SHORT,
+                    ).show()
                 }
+            }
     }
 
     private fun login() {
         auth.signInWithEmailAndPassword(binding.etEmail.value(), binding.etPassword.value())
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        startActivity(Intent(this, MainActivity::class.java))
-                    } else {
-                        val message =
-                            task.exception?.message ?: ContextCompat.getString(this, R.string.login_fail)
-                        Log.e("auth", "loginUserWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            baseContext,
-                            message,
-                            Toast.LENGTH_SHORT,
-                        ).show()
-                    }
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    goToMainActivity()
+                } else {
+                    val message =
+                        task.exception?.message ?: ContextCompat.getString(this, R.string.login_fail)
+
+                    Log.e("auth", "loginUserWithEmail:failure", task.exception)
+                    Toast.makeText(
+                        baseContext,
+                        message,
+                        Toast.LENGTH_SHORT,
+                    ).show()
                 }
+            }
+    }
+
+    // Adicionada a função auxiliar para centralizar a navegação.
+    private fun goToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            // Limpa o histórico para que o usuário não possa voltar para a tela de login.
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        startActivity(intent)
+        finish() // Finaliza a LoginActivity para removê-la da memória.
     }
 }
