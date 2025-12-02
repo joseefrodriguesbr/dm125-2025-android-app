@@ -1,5 +1,3 @@
-# Projeto Final da Disciplina
-
 # Pós-Graduação em Desenvolvimento Mobile e Cloud Computing – Inatel
 ## DM125 – Desenvolvimento de aplicativos em Kotlin para Android com Firebase
 
@@ -38,7 +36,7 @@ Aplicativo android para gerenciamento de tarefas
 
 
 ## 🛠️ IDE
-- **Visual Studio Code -  1.102.2**
+- **Android Studio Narwhal 4 Feature Drop | 2025.1.4**
 
 ## 💻 Linguagem
 - **Kotlin**
