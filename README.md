@@ -32,8 +32,8 @@ Aplicativo android para gerenciamento de tarefas
 ✅ Customização de layout do card
 
 ## 📌 Imagens do projeto 
-<img style="margin-right: 30px" src="./cap1.png" width="900px" alt="Imagem 1"/><br>  
-<img style="margin-right: 30px" src="./cap2.png" width="900px" alt="Imagem 2"/><br>  
+<img style="margin-right: 30px" src="./cap1.png" width="1080px" alt="Imagem 1"/><br>  
+<img style="margin-right: 30px" src="./cap2.png" width="1080px" alt="Imagem 2"/><br>  
 
 
 ## 🛠️ IDE
